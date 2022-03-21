@@ -4,7 +4,7 @@ const App = () => {
   const [films, setFilms] = useState([]);
   const [people, setPeople] = useState([]);
   const [loadFilms, setLoadFilms] = useState(false);
-  const [laodPeople, setLoadPeople] = useState(false);
+  const [loadPeople, setLoadPeople] = useState(false);
 
   useEffect(() => {
     fetch("https://ghibliapi.herokuapp.com/films")
@@ -20,7 +20,12 @@ const App = () => {
 
   return (
     <>
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png" width={750} height={250} alt="" />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png"
+        width={750}
+        height={250}
+        alt=""
+      />
       <h1>Studio Ghibli API</h1>
       <button onClick={() => setLoadFilms(true)}>Load Films</button>
       {loadFilms &&
@@ -46,7 +51,7 @@ const App = () => {
           </div>
         ))}
       ;<button onClick={() => setLoadPeople(true)}>Load People</button>
-      {laodPeople &&
+      {loadPeople &&
         people.map((people) => (
           <div className="col-md-6" key={`people-card-${people.id}`}>
             <div className="card shadow my-2">
@@ -55,7 +60,7 @@ const App = () => {
                 <p className="card-subtitle text-muted"> Names:{people.name}</p>
                 <p className="card-text"> Gender: {people.gender}</p>
                 <p className="card-subtitle text-muted"> Age: {people.age}</p>
-                <p className="card-text"> eye-color: {people.eye_color}</p>
+                <p className="card-text"> Eye-Color: {people.eye_color}</p>
               </div>
             </div>
           </div>
